@@ -1,0 +1,6 @@
+log/
+config/
+odoo_pg_pass
+__pycache__/
+__pycache__
+.DS_Store
