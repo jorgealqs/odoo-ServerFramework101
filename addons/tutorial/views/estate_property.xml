@@ -38,10 +38,17 @@
                             <h1 class="mb32">
                                 <field name="name" class="mb16"/>
                             </h1>
+                            <div class="oe_edit_only">
+                                <label for="tag_ids"/>
+                            </div>
+                            <h3 class="mb32">
+                                <field name="tag_ids" widget="many2many_tags"/>
+                            </h3>
                             <field name="active" invisible="1"/>
                         </div>
                         <group>
                             <group>
+                                <field name="property_type_id"/>
                                 <field name="postcode"/>
                                 <field name="date_availability"/>
                             </group>
@@ -62,6 +69,17 @@
                                     <field name="garden_area"/>
                                     <field name="garden_orientation"/>
                                     <field name="active"/>
+                                </group>
+                            </page>
+                            <page string="Offers">
+                                <group>
+                                    <field name="offer_ids" string=""/>
+                                </group>
+                            </page>
+                            <page string="Other info">
+                                <group>
+                                    <field name="salesperson"/>
+                                    <field name="buyer"/>
                                 </group>
                             </page>
                         </notebook>

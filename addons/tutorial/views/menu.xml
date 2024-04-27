@@ -2,6 +2,7 @@
 <odoo>
     <data>
         <menuitem id="tutorial_odoo_root" name="Real  Estate">
+            <!-- Options Advertisements -->
             <menuitem id="estate_property_menu_root" name="Advertisements" sequence="10">
                 <!-- Call action Api -->
                 <menuitem
@@ -10,6 +11,24 @@
                     sequence="10"
                 />
             </menuitem>
+
+            <!-- Options Settings -->
+            <menuitem id="settings_menu_root" name="Settings" sequence="20">
+                <!-- Call action Api -->
+                <menuitem
+                    id="estate_property_type_id_menu_action"
+                    action="estate_property_type_menu_action"
+                    sequence="10"
+                />
+
+                <menuitem
+                    id="estate_property_tag_id_menu_action"
+                    action="estate_property_tag_menu_action"
+                    sequence="20"
+                />
+            </menuitem>
+
         </menuitem>
+
     </data>
 </odoo>
