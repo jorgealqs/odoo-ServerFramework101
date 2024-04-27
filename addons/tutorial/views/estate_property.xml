@@ -30,6 +30,23 @@
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
                 <form string="Properties">
+                    <header>
+                        <button
+                            name="action_sold_property"
+                            string="Sold"
+                            type="object"
+                            class=""
+                        />
+                        <!-- attrs="{'invisible': ['|','|', ('active','=',False), ('probability', '=', 100), ('type', '=', 'lead')]}" -->
+                        <button
+                            name="action_cancel_properety"
+                            string="Cancel"
+                            type="object"
+                            class=""
+                        />
+                        <!-- context="{'default_lead_id': active_id}"
+                        attrs="{'invisible': ['|', ('type', '=', 'lead'),('active', '=', False),('probability', '&lt;', 100)]}" -->
+                    </header>
                     <sheet>
                         <div class="oe_title">
                             <div class="oe_edit_only">
@@ -38,6 +55,9 @@
                             <h1 class="mb32">
                                 <field name="name" class="mb16"/>
                             </h1>
+                            <group>
+                                <field name="state"/>
+                            </group>
                             <div class="oe_edit_only">
                                 <label for="tag_ids"/>
                             </div>
@@ -102,6 +122,7 @@
                     <field name="living_area" string="Living Area (sqm)"/>
                     <field name="expected_price" string="Expected Price"/>
                     <field name="selling_price" string="Selling Price"/>
+                    <field name="state"/>
                     <field name="date_availability" string="Available from"/>
                 </tree>
             </field>
