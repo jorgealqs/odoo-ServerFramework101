@@ -1,6 +1,7 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from datetime import datetime, timedelta
 from odoo.exceptions import UserError
+from odoo.tools.float_utils import float_is_zero, float_compare
 
 class EstateProperty(models.Model):
     _name = "estate.property"
@@ -83,6 +84,25 @@ class EstateProperty(models.Model):
         compute="_compute_best_price",
         readonly=True,
     )
+
+    _sql_constraints = [
+        ('check_expected_price', 'CHECK(expected_price > 0)', 'The expected price must be positive'),
+        ('check_selling_price', 'CHECK(selling_price >= 0)', 'The selling price must be positive')
+    ]
+
+    @api.constrains('selling_price', 'expected_price')
+    def _check_selling_price(self):
+        for property_record in self:
+            # El precio de venta es cero hasta que se valida una oferta
+            if float_is_zero(property_record.selling_price, precision_digits=2):
+                continue
+
+            # Calcular el 90% del precio esperado
+            expected_price_90_percent = property_record.expected_price * 0.9
+
+            # Verificar si el precio de venta es menor al 90% del precio esperado
+            if float_compare(property_record.selling_price, expected_price_90_percent, precision_digits=2) < 0:
+                raise UserError(_("The selling price cannot be lower than 90% of the expected price."))
 
     @api.depends('offer_ids')
     def _compute_best_price(self):

@@ -1,6 +1,7 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from datetime import timedelta
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
+
 
 
 class EstatePropertyOffer(models.Model):
@@ -41,6 +42,17 @@ class EstatePropertyOffer(models.Model):
         inverse="_inverse_date_deadline",
         store=True
     )
+
+    _sql_constraints = [
+        (
+            'check_price', 'CHECK(price > 0)', 'The price must be positive'
+        )
+    ]
+    @api.constrains('date_deadline')
+    def _check_date_deadline(self):
+        for record in self:
+            if record.date_deadline < fields.Date.today():
+                raise ValidationError("The end date cannot be set in the past")
 
     @api.depends("validity", "date_deadline")
     def _compute_date_deadline(self):
