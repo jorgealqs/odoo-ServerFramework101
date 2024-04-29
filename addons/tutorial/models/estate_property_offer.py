@@ -7,6 +7,7 @@ from odoo.exceptions import UserError, ValidationError
 class EstatePropertyOffer(models.Model):
     _name = "estate.property.offer"
     _description = "Real Estate Property Offer"
+    _order = "price desc"
 
     DEFAULT_VALIDITY_DAYS = 7
     OFFER_ACCEPTED='offer_accepted'
@@ -41,6 +42,10 @@ class EstatePropertyOffer(models.Model):
         compute="_compute_date_deadline",
         inverse="_inverse_date_deadline",
         store=True
+    )
+    property_type_id  = fields.Many2one(
+        comodel_name='estate.property.type',
+        string='Property Type',
     )
 
     _sql_constraints = [
