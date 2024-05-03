@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <menuitem id="tutorial_owl_youtube_odoo_root" name="OWL Youtube">
+
+            <!-- Options OWL -->
+            <menuitem id="tutorial_owl_youtube_odoo_menu_root" name="Todo list" sequence="10" action="owl_todo_list_menu_action">
+                <!-- Call action Api -->
+                <!-- <menuitem
+                    id="owl_todo_list_id_menu_action"
+                    action="owl_todo_list_menu_action"
+                    sequence="10"
+                /> -->
+
+
+            </menuitem>
+
+            <menuitem id="tutorial_youtube_owl_odoo_menu_root" name="Todo list OWL" sequence="20" action="owl_todo_list_menu_client">
+                <!-- <menuitem
+                    id="owl_todo_list_id_menu_client"
+                    action="owl_todo_list_menu_client"
+                    sequence="20"
+                /> -->
+            </menuitem>
+
+        </menuitem>
+    </data>
+</odoo>
