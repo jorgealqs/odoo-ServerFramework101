@@ -1,4 +1,4 @@
-# Tutorial de Odoo: Nombre del Proyecto
+# Tutorial de Odoo: YOUTUBE
 
 Este es un proyecto basado en el tutorial oficial de Odoo para desarrolladores. En este tutorial, aprenderemos a construir una aplicación personalizada utilizando el framework de Odoo.
 
