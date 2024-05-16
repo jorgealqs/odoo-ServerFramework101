@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="awesome_owl.counter">
+        <div class="card d-inline-block m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <span>
+                        <t t-esc="props.title" />
+                    </span>
+                    <t t-esc="props.value" />
+                </h5>
+                <p class="card-text">
+                    <div class="col d-inline">
+                        <button class="btn btn-sm btn-primary mx-2" t-on-click="()=> this.increment(props.value, props.index)">
+                            <i class="fa fa-plus"/>
+                        </button>
+                        <button class="btn btn-sm btn-primary mx-2" t-on-click="()=> this.decrement(props.value, props.index)">
+                            <i class="fa fa-minus"/>
+                        </button>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </t>
+</templates>

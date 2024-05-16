@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <menuitem id="tutorial_owl_web_odoo_root" name="Web Framework">
+
+            <!-- Options OWL -->
+            <menuitem id="tutorial_owl_web_odoo_menu_root" name="Counter" sequence="10" action="tutorial_owl_web_menu_action" />
+
+            <!-- Options OWL -->
+            <menuitem id="tutorial_owl_todo_list_odoo_menu_root" name="Todo list" sequence="20" action="tutorial_owl_web_todo_list_menu_action" />
+
+        </menuitem>
+    </data>
+</odoo>

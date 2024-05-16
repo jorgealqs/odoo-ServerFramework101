@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <menuitem id="tutorial_owl_dashboard_odoo_root" name="Awesome dashboard">
+
+            <!-- Options OWL -->
+            <menuitem id="tutorial_owl_dashboard_odoo_menu_root" name="Dashboard" sequence="10" action="tutorial_owl_dashboard_menu_action" />
+
+        </menuitem>
+    </data>
+</odoo>
