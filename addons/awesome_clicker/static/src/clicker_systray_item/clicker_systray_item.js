@@ -9,13 +9,9 @@ export class ClickerSystray extends Component {
     static props = {}
 
     setup() {
-        this.state = useState({ counter: 0 })
+        // this.state = useState({ counter: 0 })
         this.action = useService("action")
-        useExternalListener(document.body, "click", () => this.state.counter++, true)
-    }
-
-    increment() {
-        this.state.counter += 9
+        this.clickService = useState(useService("awesome_clicker.clicker"))
     }
 
     openClientAction() {
